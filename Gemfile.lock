@@ -79,7 +79,9 @@ GEM
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
-    graphql (2.0.13)
+    graphql (1.13.15)
+    graphql-guard (2.0.0)
+      graphql (>= 1.10.0, < 2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.5.11)
@@ -172,7 +174,8 @@ PLATFORMS
 DEPENDENCIES
   debug
   graphiql-rails
-  graphql
+  graphql (= 1.13.15)
+  graphql-guard
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   sprockets-rails
