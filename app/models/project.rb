@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
-  has_many :manaings
-  has_many :users, through: :manaings
+  has_many :managings
+  has_many :users, through: :managings
 
   has_many :assignings
   has_many :members, through: :assignings
