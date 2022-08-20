@@ -1,6 +1,6 @@
 class Member < ApplicationRecord
-  has_many :assigings
-  has_many :projects, through: :assigings
+  has_many :assignings
+  has_many :projects, through: :assignings
 
   validates :name, presence: true
   validates :address, presence: true
