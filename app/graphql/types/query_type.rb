@@ -7,5 +7,10 @@ module Types
     def projects
       Project.all
     end
+
+    field :members, [MemberType], null: false
+    def members
+      Member.all
+    end
   end
 end
