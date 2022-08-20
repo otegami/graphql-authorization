@@ -12,3 +12,4 @@ gem "graphql"
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
+gem "graphiql-rails", group: :development
