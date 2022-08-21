@@ -1,6 +1,14 @@
 class GraphqlAuthorizationSchema < GraphQL::Schema
-  mutation(Types::MutationType)
+  # [NOTICE]
+  # graphql-ruby のバージョンをダウングレードした都合上
+  # エラーが出ているためコメントアウトしています。最新バージョンでは問題なく稼働します
+  # mutation(Types::MutationType)
   query(Types::QueryType)
+
+  use GraphQL::Guard.new(
+    policy_object: GraphqlPolicy,
+    not_authorized: ->(type, field){ GraphQL::ExecutionError.new("Not authorized to access #{type}.#{field}") }
+  )
 
   # For batch-loading (see https://graphql-ruby.org/dataloader/overview.html)
   use GraphQL::Dataloader

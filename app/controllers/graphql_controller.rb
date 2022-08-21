@@ -9,8 +9,7 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      current_user: current_user,
     }
     result = GraphqlAuthorizationSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -20,6 +19,12 @@ class GraphqlController < ApplicationController
   end
 
   private
+
+  def current_user
+    # 認証機能は今回実装していないので、手動で current_user を設定
+    # User.find_by(role: :project_manager)
+    User.find_by(role: :chief_project_manager)
+  end
 
   # Handle variables in form data, JSON body, or a blank value
   def prepare_variables(variables_param)
