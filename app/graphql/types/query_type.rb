@@ -10,7 +10,7 @@ module Types
 
     field :projects, [ProjectType], null: false
     def projects
-      Project.all
+      ProjectPolicy::Scope.new(context[:current_user], Project).resolve
     end
 
     field :members, [MemberType], null: false

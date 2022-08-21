@@ -22,8 +22,8 @@ class GraphqlController < ApplicationController
 
   def current_user
     # 認証機能は今回実装していないので、手動で current_user を設定
-    # User.find_by(role: :project_manager)
-    User.find_by(role: :chief_project_manager)
+    User.find_by(role: :project_manager)
+    # User.find_by(role: :chief_project_manager)
   end
 
   # Handle variables in form data, JSON body, or a blank value
